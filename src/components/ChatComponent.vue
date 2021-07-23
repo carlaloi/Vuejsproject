@@ -1,31 +1,36 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
     <div>
-      <b-row>
-        <b-col>
-          <div class="container message">
-            <span class="time-left">Felipe</span>
-            <br>
-            <p id="expand">Hello. How are you?</p>
-            <span class="time-left">12:50</span>
-          </div>
-        </b-col>
-        <b-col></b-col>
-        <b-col></b-col>
-      </b-row>
-      <br />
-      <b-row>
-        <b-col></b-col>
-        <b-col></b-col>
+      <div v-for="msg in messages" :key="msg.id">
+        <b-row v-if="!msg.itsme">
+          <b-col>
+            <div class="container message">
+              <span class="time-left">{{ msg.idRecipient }}</span>
+              <br />
+              <p id="expand">{{ msg.text }}</p>
+              <span class="time-left">{{ msg.time }}</span>
+            </div>
+          </b-col>
+          <b-col></b-col>
+          <b-col></b-col>
+        </b-row>
+        <b-row v-if="msg.itsme">
+          <b-col></b-col>
+          <b-col></b-col>
 
-        <b-col>
-          <div class="container message">
-            <p id="expand">Hi. I'm fine!</p>
-            <span class="time-right">12:59</span>
-          </div></b-col
-        >
-      </b-row>
+          <b-col>
+            <div class="container message">
+              <span class="time-left">Me</span>
+              <br>
+
+              <p id="expand">{{ msg.text }}</p>
+              <span class="time-right">{{ msg.time }}</span>
+            </div></b-col
+          >
+        </b-row>
+      </div>
+
+      <br />
     </div>
   </div>
 </template>
@@ -38,7 +43,23 @@ export default {
   },
   data() {
     return {
-      messages: [{}],
+      messages: [
+        {
+          id: 0,
+          idRecipient: 1,
+          idSender: 0,
+          itsme: false,
+          text: "Hi. How are you?",
+          time: "12:50",
+        },
+        {
+          idRecipient: 1,
+          idSender: 0,
+          itsme: true,
+          text: "Im fine and you?",
+          time: "12:59",
+        },
+      ],
     };
   },
 };
@@ -69,5 +90,8 @@ export default {
 .time-left {
   float: left;
   color: #999;
+}
+.row {
+  margin: 0;
 }
 </style>

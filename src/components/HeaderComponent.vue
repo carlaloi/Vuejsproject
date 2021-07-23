@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style>
-
+    .navbar{
+        height: 8%;
+    }
 </style>

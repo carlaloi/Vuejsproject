@@ -2,7 +2,7 @@
   <div id="app">
     <HeaderComponent />
     <div id="sidebar">
-      <h2>Contacts</h2>
+      <h4>Contacts</h4>
       <b-list-group>
         <b-list-group-item>Martina</b-list-group-item>
         <b-list-group-item>Lucia</b-list-group-item>
@@ -35,6 +35,9 @@ export default {
 </script>
 
 <style>
+html,body{
+  height: 100%;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,22 +49,21 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
 }
 #sidebar{
   background-color: white!important;;
   width: 20%;
-  min-height: 90vh;
   float: left;
+  height: 92%;
   border: 1px solid black;
   box-sizing: border-box;
 }
 #container {
   width: 80%;
   float: right;
-  min-height: 90vh;
+  height: 92%;
   box-sizing: border-box;
 }
 #header {
